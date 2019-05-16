@@ -1,0 +1,9 @@
+vendor/**
+build/**
+etc/conf.yml
+db/*.db
+log/**
+.vscode
+**/bindata.go
+**/swagger.json
+DockerGolangFile

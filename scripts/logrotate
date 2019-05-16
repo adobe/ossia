@@ -1,0 +1,8 @@
+/opt/ossia/log/ossia.log {
+    daily
+    rotate 14
+    missingok
+    dateext
+    copytruncate
+    compress
+}

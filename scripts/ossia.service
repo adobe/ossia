@@ -1,0 +1,22 @@
+[Unit]
+Description=OpenStack Simple Inventory API
+Documentation=https://www.adobe.com
+After=network.target
+
+[Service]
+User=ossia
+Group=ossia
+LimitNOFILE=65536
+EnvironmentFile=-/etc/default/ossia
+PermissionsStartOnly=true
+ExecStartPre=/sbin/setcap 'cap_net_bind_service=+ep' /opt/ossia/bin/ossia
+ExecStart=/opt/ossia/bin/ossia
+KillMode=control-group
+Restart=on-failure
+RestartSec=5
+StartLimitInterval=20
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target
+Alias=ossia.service
