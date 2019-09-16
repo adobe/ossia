@@ -459,7 +459,7 @@ func updateAggregates(deployment string) {
 				log.Error(err)
 			}
 			for _, a := range aggregates {
-				if a.Deleted != true {
+				if !a.Deleted {
 					agg := &models.Aggregate{
 						ID:               a.ID,
 						Name:             a.Name,

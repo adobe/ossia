@@ -19,7 +19,7 @@ const (
 	// AppName - application name
 	AppName = "ossia"
 	// AppVersion - application version
-	AppVersion = "1.0.1"
+	AppVersion = "1.0.2"
 )
 
 func init() {

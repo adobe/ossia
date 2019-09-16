@@ -28,7 +28,7 @@ func init() {
 			"remote_addr": ctx.RemoteAddr(),
 			"method":      ctx.Method(),
 			"path":        ctx.Path(),
-			"duration":    time.Now().Sub(start),
+			"duration":    time.Since(start),
 		}).Info("External API Call")
 	})
 }

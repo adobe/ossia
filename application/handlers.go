@@ -1180,7 +1180,7 @@ func aggregateHandler(c iris.Context) {
 		} else {
 			c.StatusCode(iris.StatusOK)
 			response = iris.Map{
-				"deployment":                                deployment,
+				"deployment": deployment,
 				fmt.Sprintf("aggregate:%s", aggregate.Name): aggregate,
 			}
 		}
@@ -1389,7 +1389,7 @@ func clusterHandler(c iris.Context) {
 	c.StatusCode(iris.StatusNotFound)
 
 	if deploymentRegistered(deployment) {
-
+		c.StatusCode(iris.StatusOK)
 		instances := listInstances(deployment, "")
 		members := make(map[string]string)
 

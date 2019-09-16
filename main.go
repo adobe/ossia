@@ -16,7 +16,7 @@ governing permissions and limitations under the License.
 //
 //     Schemes: http
 //     BasePath: /v1
-//     Version: 1.0.1
+//     Version: 1.0.2
 //     License: Apache License 2.0 http://www.apache.org/licenses/LICENSE-2.0
 //     Contact: Mykola Mogylenko <mykola@adobe.com>
 //

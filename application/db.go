@@ -52,6 +52,8 @@ func InitDB(stumb string) {
 
 }
 
+/*
+Need to be re-worked
 func save(i interface{}, db storm.Node) {
 	//defer utils.TimeTrack(time.Now(), save)
 	err := db.Save(i)
@@ -84,6 +86,7 @@ func updateOrSave(key string, value interface{}, item interface{}, db storm.Node
 	}
 	return nil
 }
+*/
 
 // DataStoreMetrics provides BOLT DB Statistics
 func DataStoreMetrics() {
