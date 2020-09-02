@@ -14,9 +14,9 @@ package application
 import (
 	"time"
 
-	log "github.com/Sirupsen/logrus"
 	"github.com/asdine/storm"
-	bolt "github.com/coreos/bbolt"
+	log "github.com/sirupsen/logrus"
+	bolt "go.etcd.io/bbolt"
 )
 
 var (

@@ -18,7 +18,7 @@ type Snapshot struct {
 	// the id for the snapshot
 	//
 	// required: true
-	ID string `storm:"id" json:"-"`
+	ID string `storm:"id"`
 	// Amount of Flavors
 	//
 	// required: true

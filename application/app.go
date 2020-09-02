@@ -15,8 +15,8 @@ import (
 	"ossia/models"
 	"ossia/openstack"
 
-	log "github.com/Sirupsen/logrus"
 	"github.com/gophercloud/gophercloud"
+	log "github.com/sirupsen/logrus"
 )
 
 // App is application object

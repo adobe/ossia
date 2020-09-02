@@ -16,7 +16,7 @@ import (
 	"runtime"
 	"time"
 
-	log "github.com/Sirupsen/logrus"
+	log "github.com/sirupsen/logrus"
 )
 
 func getFunctionName(i interface{}) string {

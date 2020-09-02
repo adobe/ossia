@@ -12,8 +12,8 @@ governing permissions and limitations under the License.
 package scheduler
 
 import (
-	log "github.com/Sirupsen/logrus"
 	"github.com/robfig/cron"
+	log "github.com/sirupsen/logrus"
 )
 
 var scheduler *cron.Cron

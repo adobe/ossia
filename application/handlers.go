@@ -14,7 +14,7 @@ package application
 import (
 	"fmt"
 
-	"github.com/kataras/iris"
+	"github.com/kataras/iris/v12"
 )
 
 // Default Handlers

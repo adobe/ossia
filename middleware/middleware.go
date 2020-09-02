@@ -11,7 +11,7 @@ governing permissions and limitations under the License.
 
 package middleware
 
-import "github.com/kataras/iris/context"
+import "github.com/kataras/iris/v12/context"
 
 var Provider = []context.Handler{}
 

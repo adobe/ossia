@@ -12,7 +12,7 @@ governing permissions and limitations under the License.
 package middleware
 
 import (
-	"github.com/kataras/iris/context"
+	"github.com/kataras/iris/v12"
 )
 
 var serverName string
@@ -25,7 +25,7 @@ func UpdateServerHeader(header string) {
 
 //fmt.Sprintf("%s/%s", appName, appVersion)
 func init() {
-	Register(func(ctx context.Context) {
+	Register(func(ctx iris.Context) {
 		ctx.Header("Server", serverName)
 		ctx.Next()
 	})

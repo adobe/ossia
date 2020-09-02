@@ -50,7 +50,7 @@ MAINTAINER = "mykola@adobe.com"
 VENDOR = "Adobe"
 DESCRIPTION = "OpenStack Simple Inventory API"
 
-prereqs = ['git', 'go', 'dep']
+prereqs = ['git', 'go']
 optional_prereq = ['fpm', 'rpmbuild']
 
 fpm_common_args = "-f -s dir --log error \
@@ -675,7 +675,7 @@ def main():
     iteration = 1
     no_vet = False
     goarm_version = "6"
-    run_get = True
+    run_get = False
     upload_bucket = None
     generate = False
 

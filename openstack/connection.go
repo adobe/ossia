@@ -12,9 +12,9 @@ governing permissions and limitations under the License.
 package openstack
 
 import (
-	log "github.com/Sirupsen/logrus"
 	"github.com/gophercloud/gophercloud"
 	"github.com/gophercloud/gophercloud/openstack"
+	log "github.com/sirupsen/logrus"
 )
 
 func initOpenStackProvider(IdentityEndpoint string, Username string, Password string, TenantName string) *gophercloud.ProviderClient {

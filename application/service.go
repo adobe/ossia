@@ -21,11 +21,11 @@ import (
 	"syscall"
 	"time"
 
-	log "github.com/Sirupsen/logrus"
 	"github.com/iris-contrib/middleware/cors"
+	log "github.com/sirupsen/logrus"
 
 	//prometheusMiddleware "github.com/iris-contrib/middleware/prometheus"
-	"github.com/kataras/iris"
+	"github.com/kataras/iris/v12"
 	//"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
@@ -44,8 +44,7 @@ func NewService(app *App) *Service {
 // Run start Web Server for the API
 func (s *Service) Run() {
 	configuration := iris.WithConfiguration(iris.Configuration{
-		DisableStartupLog:     true,
-		DisableVersionChecker: true,
+		DisableStartupLog: true,
 	})
 
 	irisAddress := iris.Addr(s.app.Config.ListenOn)
@@ -110,7 +109,7 @@ func (s *Service) Engine() *iris.Application {
 	engine.Configure()
 
 	for _, ware := range middleware.Provider {
-		engine.Use(ware)
+		engine.UseGlobal(ware)
 	}
 
 	//metrics := prometheusMiddleware.New(AppName, 300, 1200, 5000)
@@ -122,9 +121,7 @@ func (s *Service) Engine() *iris.Application {
 	engine.Use(crs)
 	//engine.Use(metrics.ServeHTTP)
 
-	//engine.StaticWeb("/static", "./assets")
-	engine.StaticEmbedded("/", "./assets", Asset, AssetNames)
-
+	engine.HandleDir("/", AssetFile())
 	v1 := engine.Party("/v1")
 
 	// Application Handlers

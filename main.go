@@ -33,7 +33,7 @@ import (
 	"ossia/application"
 	"ossia/scheduler"
 
-	log "github.com/Sirupsen/logrus"
+	log "github.com/sirupsen/logrus"
 )
 
 // Reload is used for the call-back from

@@ -16,8 +16,8 @@ import (
 
 	"ossia/models"
 
-	log "github.com/Sirupsen/logrus"
 	"github.com/fsnotify/fsnotify"
+	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
 

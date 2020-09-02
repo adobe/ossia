@@ -9,6 +9,7 @@ poll_interval:
   flavors: 1h
   projects: 24h
   instances: 30m
+  aggregates: 1h
   hypervisors: 1h
 database: "/opt/ossia/db/inventory.db"
 debug: False
