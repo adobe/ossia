@@ -12,9 +12,8 @@ governing permissions and limitations under the License.
 package models
 
 import (
-	"time"
-
 	"github.com/gophercloud/gophercloud/openstack/compute/v2/extensions/hypervisors"
+	"time"
 )
 
 // Hypervisor represents OpenStack Hypervisor Resource
@@ -24,7 +23,7 @@ type Hypervisor struct {
 	// the id for the hypervisor
 	//
 	// required: true
-	ID int `storm:"id"`
+	ID string `storm:"id"`
 	// the hostname for the hypervisor
 	//
 	// required: true

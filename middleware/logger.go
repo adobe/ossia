@@ -15,12 +15,12 @@ import (
 	"strconv"
 	"time"
 
-	log "github.com/Sirupsen/logrus"
-	"github.com/kataras/iris/context"
+	"github.com/kataras/iris/v12"
+	log "github.com/sirupsen/logrus"
 )
 
 func init() {
-	Register(func(ctx context.Context) {
+	Register(func(ctx iris.Context) {
 		start := time.Now()
 		ctx.Next()
 		log.WithFields(log.Fields{

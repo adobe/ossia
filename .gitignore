@@ -1,4 +1,4 @@
-vendor/**
+ossia
 build/**
 etc/conf.yml
 db/*.db

@@ -1,7 +1,6 @@
 APP_NAME    = ossia
+VERSION    = $(shell awk '$$2 ~ /Version/ {print $$3}' main.go)
 DATE      ?= $(shell date +%FT%T%z)
-VERSION   ?= $(shell git describe --tags --always --dirty --match=v* 2> /dev/null || \
-			cat $(CURDIR)/.version 2> /dev/null || echo v0)
 BIN        = $(GOPATH)/bin
 BASE       = $(GOPATH)/src/$(APP_NAME)
 BUILD_ARGS = $(shell env GOOS=linux GOARCH=amd64) 
@@ -14,10 +13,8 @@ GODOC      = godoc
 GOFMT      = gofmt
 SRC        = $(shell find . -type f -name '*.go' -not -path "./vendor/*")
 
-DEP        = $(BIN)/dep
 SWAGGER    = $(BIN)/swagger
 BINDATA    = $(BIN)/go-bindata
-VERSION    = $(shell awk '$$2 ~ /Version/ {print $$3}' main.go)
 
 .DEFAULT_GOAL := help
 
@@ -27,19 +24,16 @@ help:
 			@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 deps:
-			$(GOGET) github.com/golang/dep/cmd/dep
-			$(GOGET) github.com/shuLhan/go-bindata/...
-
-vendor:
-			$(DEP) ensure
+			$(GOGET) github.com/go-swagger/go-swagger/cmd/swagger
+			$(GOGET) github.com/go-bindata/go-bindata/v3/go-bindata
 
 swagger:
 			$(SWAGGER) generate spec -m -o ./assets/swagger.json
 
 bindata:
-			$(BINDATA) -pkg application -o application/bindata.go ./assets/...
+			$(BINDATA) -pkg application -o application/bindata.go -fs ./assets/...
 
-prebuild: deps vendor bindata swagger
+prebuild: bindata swagger
 			$(MAKE) bindata
 
 build: prebuild ## Build Linux binary (amd64)
@@ -53,7 +47,7 @@ run: prebuild  ## Start OSSIA
 
 clean: ## Clean build arftifacts
 			-rm -rf build
-			-rm -rf vendor/*
+			-rm -f ossia
 
-.PHONY: all vendor swagger bindata prebuild build debian \
-			run test clean
+.PHONY: all swagger bindata prebuild build package \
+			run clean

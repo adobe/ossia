@@ -19,8 +19,8 @@ import (
 	"strings"
 	"time"
 
-	log "github.com/Sirupsen/logrus"
 	"github.com/asdine/storm"
+	log "github.com/sirupsen/logrus"
 )
 
 // UpdateInventory executes initial API calls to
